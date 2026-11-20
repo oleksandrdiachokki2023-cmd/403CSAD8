@@ -1,0 +1,70 @@
+# Використання проєкту
+
+Усі команди нижче запускайте з кореня репозиторію.
+
+## Запуск агента через Copilot Chat
+
+Відкрийте репозиторій у VS Code, відкрийте Copilot Chat і введіть:
+
+```text
+/init
+```
+
+Агент послідовно виконає етапи ініціалізації Git, створення Python-проєкту, налаштування тестів і CI та фінальну перевірку. Якщо етап завершується помилкою, агент зупиниться й повідомить її причину.
+
+## Ручний запуск тестів
+
+Створіть та активуйте віртуальне середовище один раз.
+
+Windows (PowerShell):
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+
+Windows (Command Prompt):
+
+```bat
+python -m venv .venv
+.venv\Scripts\activate.bat
+```
+
+Linux/macOS:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+Після активації встановіть pytest і запустіть тести:
+
+```bash
+pip install pytest
+pytest
+```
+
+Або встановіть залежності проєкту, включно з pytest:
+
+```bash
+pip install -r requirements.txt
+pytest
+```
+
+## Запуск CI-скриптів локально
+
+Скрипти використовують Python із `.venv` і самостійно встановлюють залежності з `requirements.txt`, тому середовище має бути створене заздалегідь. Активація середовища для скриптів не потрібна.
+
+Linux/macOS:
+
+```bash
+bash ci.sh
+```
+
+Windows (Command Prompt або PowerShell):
+
+```bat
+.\ci.bat
+```
+
+Скрипт повертає помилку, якщо середовище відсутнє, залежності не встановлюються або тести не проходять.
