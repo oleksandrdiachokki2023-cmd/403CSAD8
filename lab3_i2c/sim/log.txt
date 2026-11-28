@@ -1,0 +1,6 @@
+VCD info: dumpfile sim/i2c.vcd opened for output.
+PASS: addr=0x50 data=0xa5 -> Rx отримав 0xa5, ACK
+PASS: addr=0x50 data=0x3c -> Rx отримав 0x3c, ACK
+PASS: addr=0x51 -> NACK, дані не прийнято
+=== УСІ ТЕСТИ ПРОЙДЕНО ===
+tb/tb_i2c.v:61: $finish called at 18010000 (1ps)
